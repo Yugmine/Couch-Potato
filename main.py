@@ -73,7 +73,7 @@ def home():
     return render_template("home.html", 
                            calories=calories,
                            steps=daily.get_json()["data"][0]["distance_data"]["steps"],
-                           distance=round(daily.get_json()["data"][0]["distance_data"]["distance_meters"], 2),
+                           distance=int(daily.get_json()["data"][0]["distance_data"]["distance_meters"]),
                             user_id=user_id,
                             current_progress=user_potatoes[username]["current_progress"],
                             current_potato=user_potatoes[username]["current_potato"],

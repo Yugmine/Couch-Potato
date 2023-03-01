@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>{% block title %} TERRArism {% endblock %}</h1>
+    <h1>{% block title %} Couch Potato {% endblock %}</h1>
     <form action="/logout?user_id={{ user_id }}" method="post">
         <button type="submit" name="logout">logout</button>
     </form>
@@ -8,9 +8,9 @@
     <p>current progress: {{ current_progress }}/{{ current_potato }} kcal</p>
     <p>potatoes harvested: {{ harvested }}</p>
     <h3>Yesterday's stats</h3>
-    <p>calories: {{ calories }} kcal</p>
-    <p>steps: {{ steps }}</p>
-    <p>distance: {{ distance }}</p>
+    <p>calories burned: {{ calories }} kcal</p>
+    <p>total steps: {{ steps }}</p>
+    <p>distance walked: {{ distance }} m</p>
 
     <h2>potato farm</h2>
     <canvas id="Canvas" style="width: 500; height: 500; border: 1px solid black;"></canvas>
