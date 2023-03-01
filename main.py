@@ -77,7 +77,8 @@ def home():
                             user_id=user_id,
                             current_progress=user_potatoes[username]["current_progress"],
                             current_potato=user_potatoes[username]["current_potato"],
-                            harvested=user_potatoes[username]["potatoes_harvested"])
+                            harvested=user_potatoes[username]["potatoes_harvested"],
+                            potatoes=user_potatoes[username]["potatoes"])
 
 @app.route("/logout", methods=["POST"])
 def logout():
@@ -85,8 +86,6 @@ def logout():
     terra.deauthenticate_user(terra_user)
     return render_template("logout.html")
 
-
 #run the web application
 if __name__ == "__main__":
     app.run(debug=True,use_reloader=False,host="0.0.0.0")
-

@@ -1,0 +1,85 @@
+body { 
+    margin: 0;   /* Remove body margins */
+    font-family: 'Helvetica', 'Arial', sans-serif;
+}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    padding: 14px 200px;
+    border-radius: 8px;
+  }
+  
+  .button1 {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  }
+  
+  .button2:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+
+  .container {
+    padding: 0;
+  }
+
+  .leftmenu {
+    background-color:  #0b1162 ;
+    float:left;
+    left: auto;
+    width: 150px;
+    height: 1000px;
+    padding: 0;
+  }
+
+  .main {
+    float:left;
+    padding-left: 20px;
+  }
+
+  .logo {
+    color: orange;
+    font-style: italics;
+    padding-left: 20px;
+  }
+
+  .buttondashboard {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 18px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color:  #555fdb;
+    border: none;
+    border-radius: 15px;                    
+  }
+             
+  .buttondashboard:hover {background-color:   #454db2 }
+  
+  .buttondashboard:active {
+    background-color:   #454db2 ;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+  .leftmenu_text {
+    color: #8a8fcf;
+    padding-left: 5px;
+  }
+
+  .leftsubmenu {
+    color:  #333ed0;
+    padding-left: 5px;
+  }

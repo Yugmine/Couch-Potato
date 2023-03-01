@@ -1,31 +1,98 @@
-{% extends 'base.html' %}
-{% block content %}
-    <h1>{% block title %} Couch Potato {% endblock %}</h1>
-    <form action="/logout?user_id={{ user_id }}" method="post">
-        <button type="submit" name="logout">logout</button>
-    </form>
-    <h2>Grow potatoes with the calories you burn every day :)</h2>
-    <p>current progress: {{ current_progress }}/{{ current_potato }} kcal</p>
-    <p>potatoes harvested: {{ harvested }}</p>
-    <h3>Yesterday's stats</h3>
-    <p>calories burned: {{ calories }} kcal</p>
-    <p>total steps: {{ steps }}</p>
-    <p>distance walked: {{ distance }} m</p>
+<!doctype html>
+<html>
+<head>
+<title>Couch Potato</title>
+<meta name="description" content="Our first page">
+<meta name="keywords" content="website for potato people">
+<link rel="stylesheet" href="/static/css/style.css" />
+<!-- RawGit CDN chart.css -->
+<link rel="stylesheet" href="/static/css/charts.css" />
+</head>
+<body>
+<div class="container">
+    
+    <div class="leftmenu">
+        <div><h2 class="logo"><em>potato.io</em></h2></div>
+        <div><button type="button" class="button buttondashboard">Dashboard</button></div>
+        <div>
+            <h3 class="leftsubmenu">Management</h3>
+            <p class="leftmenu_text">Check potatoes</p>
+            <p class="leftmenu_text">User info</p>
+            <p class="leftmenu_text">Credits</p>
+            <br>
 
-    <h2>potato farm</h2>
-    <canvas id="Canvas" style="width: 500; height: 500; border: 1px solid black;"></canvas>
+            <form action="/logout?user_id={{ user_id }}" method="post">
+                <button type="submit" name="logout" class="button buttondashboard">logout</button>
+            </form> 
+            
+        </div>
+    </div>
 
-    <script>
-        const canvas = document.getElementById("Canvas");
-        const ctx = canvas.getContext("2d");
-        
-        ctx.fillStyle = "#79dc5b";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+    <div class="main">
+        <H1>Couch Potato</H1>
+        <div style="float: left">
+            <h2>Current Potato</h2>
+            <br><br>
+            <img  src="https://media.istockphoto.com/id/1189117812/vector/vector-illustration-of-a-funny-potato-in-cartoon-style.jpg?s=612x612&w=0&k=20&c=rubtZdWlljpwMKKcpzM7uylkd42B9sVPiDk40onTq3Y=" alt="Girl in a jacket" width="300" height="300">
+            <div class="charts">
+                <div class="charts__chart chart--p{{ current_potato }} chart--sm">
+                    <div class="charts__chart chart--p{{ current_progress }}  chart--green">
+                
+                    </div><!-- /.charts__chart -->
+                </div><!-- /.charts__chart -->             
+            </div><!-- /.charts -->
+            <h2>Grow potatoes with the calories you burn every day :)</h2>
+            <p>current progress: {{ current_progress }}/{{ current_potato }} kcal</p>
+            <p>potatoes harvested: {{ harvested }}</p>         
+        </div>
 
-        const img = new Image();
-        img.src = "/static/img/potato.png";
-        img.onload = function() {
-            ctx.drawImage(img, 50, 50, 100, 100);
+        <div style="float: left; padding-left:10px">
+            <br>
+            <h2>potato farm</h2>
+            <canvas id="Canvas" width=500, height=300, style="border: 1px solid black;"></canvas>
+                   
+            <br><br>
+              <h3>Yesterday's stats</h3>
+              <p>calories burned: {{ calories }} kcal</p>
+              <p>total steps: {{ steps }}</p>
+              <p>distance walked: {{ distance }} m</p>            
+            </div>      
+    </div>
+</div>    
+
+<div>      
+
+</div>
+
+</body>
+
+<script>
+    const canvas = document.getElementById("Canvas");
+    const ctx = canvas.getContext("2d");
+    
+    ctx.fillStyle = "#79dc5b";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    const img = new Image();
+    img.src = "/static/img/potato.png";
+    img.onload = function() {
+        console.log(img.width*0.1, img.height*0.1);
+        const potatoes = eval("{{ potatoes }}");
+        console.log(potatoes.length);
+        let row = 0;
+        let col = 0;
+        for (let i = 0; i < potatoes.length; i++) {
+            console.log(row, col, col*100, row*100);
+            const factor = potatoes[i]/2000;
+            console.log(factor);
+            ctx.drawImage(img, col*100, row*100, img.width*factor, img.height*factor);
+            col++;
+            if (col == 5) {
+                row++;
+                col = 0;
+            }
         }
-    </script>
-{% endblock %}
+    }
+</script>
+
+</html>
