@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>{% block title %} TERRArism {% endblock %}</h1>
+    <form action="/login" method="post">
+        <input name="username">
+        <button type="submit" name="login">Sign in with Google</button>
+    </form>
+{% endblock %}

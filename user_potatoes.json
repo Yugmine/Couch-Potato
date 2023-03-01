@@ -1,0 +1,19 @@
+{
+    "test": {
+        "potatoes": [
+            158,
+            162,
+            162,
+            189,
+            155,
+            186,
+            144,
+            152,
+            182
+        ],
+        "current_potato": 182,
+        "current_progress": 47,
+        "potatoes_harvested": 9,
+        "last_upload": "2023-02-28 00:00:00"
+    }
+}
